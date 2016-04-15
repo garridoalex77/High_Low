@@ -1,5 +1,6 @@
 <?php
 
+start:
 $randomNum = mt_rand(1, 100);
 $guessCount = 0;
 
@@ -24,3 +25,9 @@ do {
     }
 } while ($guess != $randomNum && $guess != "exit");
     
+fwrite(STDOUT, "Would you like to play again?");
+$again = trim(fgets(STDIN));
+
+if ($again == "y" || $again == "yes") {
+    goto start;
+}

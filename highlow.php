@@ -1,15 +1,15 @@
 <?php
 
-$randomNum = rand(1, 100);
+$randomNum = mt_rand(1, 100);
+$guessCount = 0;
 
 fwrite(STDOUT, "Take a guess between 1-100\n");
- echo $randomNum.PHP_EOL;
- echo $guess.PHP_EOL;
-
 
 do {
-    $guess = fgets(STDIN);
+    $guessCount++;
+    $guess = trim(fgets(STDIN));
     if ($guess == $randomNum) {
+        echo "it only took you " .$guessCount. " tries\n";
         echo "somehow...you cheated\n";
     } elseif ($guess > $randomNum) {
         echo "too high\n";
@@ -22,8 +22,5 @@ do {
     } else {
         echo "cold\n";
     }
-    if ($guess == 'exit') {
-        `exit`;
-    }
-} while ($guess != $randomNum);
+} while ($guess != $randomNum && $guess != "exit");
     

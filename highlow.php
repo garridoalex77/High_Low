@@ -1,10 +1,13 @@
 <?php
-
 start:
-$randomNum = mt_rand(1, 100);
 $guessCount = 0;
+if ($argv[1] >= $argv[2]) {
+    $randomNum = mt_rand($argv[2], $argv[1]);
+} else {
+    $randomNum = mt_rand($argv[1], $argv[2]);
+}
 
-fwrite(STDOUT, "Take a guess between 1-100\n");
+fwrite(STDOUT, "Take a guess between ".$argv[1]." and ".$argv[2].PHP_EOL);
 
 do {
     $guessCount++;

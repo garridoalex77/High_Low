@@ -1,12 +1,13 @@
 <?php
 start:
 $guessCount = 0;
-if ($argv[1] >= $argv[2]) {
+if ($argv[1] > $argv[2]) {
     $randomNum = mt_rand($argv[2], $argv[1]);
+} elseif ($argv[1] == $argv[2]) {
+    echo "lazy..\n";
 } else {
     $randomNum = mt_rand($argv[1], $argv[2]);
-}
-
+} 
 fwrite(STDOUT, "Take a guess between ".$argv[1]." and ".$argv[2].PHP_EOL);
 
 do {

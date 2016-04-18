@@ -1,10 +1,15 @@
 <?php
 start:
+$argv[1] = 0;
+$argv[2] = 100;
 $guessCount = 0;
+if (!ctype_digit($argv[1]) && !ctype_digit($argv[2])) {
+    echo "OK let me help you\n";
+} 
 if ($argv[1] > $argv[2]) {
     $randomNum = mt_rand($argv[2], $argv[1]);
 } elseif ($argv[1] == $argv[2]) {
-    echo "lazy..\n";
+    echo "lazy...\n";
 } else {
     $randomNum = mt_rand($argv[1], $argv[2]);
 } 
